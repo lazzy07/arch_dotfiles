@@ -1,0 +1,7 @@
+
+^/README.*
+^/LICENSE.*
+
+\.git
+\.gitignore
+\.gitmodules
