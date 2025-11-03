@@ -21,4 +21,4 @@ stow .
 ```
 
 ## Managing monitors
-I used (nwg-displays)[https://www.github.com/nwg-piotr/nwg-displays] to find the perfect monitor layout for my PC.
+I used [nwg-displays](https://www.github.com/nwg-piotr/nwg-displays) to find the perfect monitor layout for my PC.
