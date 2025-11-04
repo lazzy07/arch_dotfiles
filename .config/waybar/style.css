@@ -1,43 +1,67 @@
+@import "colors.css";
+
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "Inter Variable", "JetBrainsMono Nerd Font", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "Inter Variable", "JetBrainsMono Nerd Font", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  min-height: 0;
 }
 
 window#waybar {
-    background: #121212;
-    color: #e8eaed;
+  background-color: transparent;
+  color: @on_primary;
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+  background: @secondary_container 50%;
+  border-radius: 20px;
 }
+
 tooltip label {
-  color: white;
+  color: @secondary;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-bottom: 3px solid transparent;
+  margin: 2px 5px;
+  border-radius: 10px;
+  padding: 5px 8px;
+  background: @primary;
+  color: @on_primary;
+  border-bottom: 3px solid transparent;
 }
 
-#workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid white;
+
+#workspaces button:hover {
+  font-weight: bold;
 }
 
-#clock, #pulseaudio, #network, #bluetooth{
-    padding: 10px;
-    background-color: #e8eaed;
-    color: #121212;
+#workspaces button.active {
+  color: @on_tertiary;
+  background: @tertiary;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+
+#clock, #pulseaudio, #network, #bluetooth {
+    margin: 2px 5px;
+    border-radius: 10px;
+    padding: 5px 25px;
+    background-color: @primary;
+    color: @on_primary;
 }
 
 #memory, #cpu, #custom-nvidia {
-    padding: 10px;
+    padding: 5px 10px;
     min-width: 100px;
+    background-color: @secondary;
+    margin: 2px 5px;
+    border-radius: 10px;
+    color: @on_secondary;
+}
+
+#hyprland-window {
+    color: @on_primary;
+    font-size: 1.5rem;
 }
