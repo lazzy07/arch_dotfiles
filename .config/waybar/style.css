@@ -15,20 +15,29 @@ window#waybar {
 }
 
 tooltip {
-  background: @secondary_container 50%;
+  background: @background;
   border-radius: 20px;
 }
 
 tooltip label {
-  color: @secondary;
+  color: @primary;
+  padding: 10px;
+}
+
+#workspaces {
+  margin: 2px 5px;
+  background: @background;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 #workspaces button {
   margin: 2px 5px;
   border-radius: 10px;
-  padding: 5px 8px;
-  background: @primary;
-  color: @on_primary;
+  background: @background;
+  color: @primary;
   border-bottom: 3px solid transparent;
 }
 
@@ -38,30 +47,51 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: @on_tertiary;
-  background: @tertiary;
-  padding: 5px 15px;
+  color: @on_primary;
+  background: @primary;
+  padding: 3px 15px;
   border-radius: 15px;
+}
+
+#workspaces button.urgent {
+  color: @error;
+  background: @error_container;
 }
 
 #clock, #pulseaudio, #network, #bluetooth {
     margin: 2px 5px;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 5px 25px;
-    background-color: @primary;
-    color: @on_primary;
+    background-color: @background;
+    color: @primary;
+    font-weight: bold;
+}
+
+#clock{
+  background-color: @primary;
+  color: @on_primary;
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 
 #memory, #cpu, #custom-nvidia {
     padding: 5px 10px;
-    min-width: 100px;
-    background-color: @secondary;
+    min-width: 110px;
+    background-color: @background;
     margin: 2px 5px;
-    border-radius: 10px;
-    color: @on_secondary;
+    border-radius: 20px;
+    color: @tritiery;
+    font-weight: bold;
 }
 
 #hyprland-window {
     color: @on_primary;
     font-size: 1.5rem;
+}
+
+#window label {
+  padding: 0px 20px;
+  font-size: 1.1rem;
+  color: @on_primary;
+  font-weight: bolder;
 }
