@@ -7,8 +7,8 @@
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-    color: white;
+    background: #121212;
+    color: #e8eaed;
 }
 
 tooltip {
@@ -31,7 +31,13 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
-#clock, #pulseaudio, #network{
+#clock, #pulseaudio, #network, #bluetooth{
     padding: 10px;
+    background-color: #e8eaed;
+    color: #121212;
 }
 
+#memory, #cpu, #custom-nvidia {
+    padding: 10px;
+    min-width: 100px;
+}
