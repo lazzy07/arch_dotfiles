@@ -2,7 +2,7 @@
 command = "swww"
 arguments = ["img", "--transition-type", "center"]
 set = true 
-
+post_hook = "bash ~/.local/bin/update-swww-restore.sh {file}"
 
 [templates.hyprland]
 input_path = 'templates/hyprland-colors.conf'
