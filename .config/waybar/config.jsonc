@@ -16,8 +16,8 @@
     "position": "top",
     "output": "HDMI-A-1",
     "include": "./common-modules.jsonc",
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["cpu", "memory", "custom/nvidia"],
     "modules-right": ["clock#mini"]  // uses mini clock instance
   },
 
@@ -28,7 +28,7 @@
     "output": ["DP-2", "DP-3"],
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["cpu#alt", "memory#alt", "custom/nvidia"],
+    "modules-center": ["cpu", "memory", "custom/nvidia"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "clock#mini"]
   }
 ]
