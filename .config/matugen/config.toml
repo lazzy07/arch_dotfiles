@@ -1,8 +1,6 @@
 [config.wallpaper]
-command = "swww"
-arguments = ["img", "--transition-type", "center"]
-set = true 
-post_hook = "bash ~/.local/bin/update-swww-restore.sh {file}"
+command=''
+set = false 
 
 [templates.hyprland]
 input_path = 'templates/hyprland-colors.conf'
@@ -22,3 +20,4 @@ output_path = '../rofi/colors/colors.rasi'
 input_path = 'templates/colors.css' 
 output_path = '../waybar/colors.css'
 post_hook = 'pkill waybar; waybar &'
+
