@@ -6,8 +6,8 @@
     "output": "DP-1",
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["cpu", "memory", "custom/nvidia"],
-    "modules-right": ["bluetooth", "network", "pulseaudio", "clock"]
+    "modules-center": ["custom/notification" ,"cpu", "memory", "custom/nvidia"],
+    "modules-right": ["bluetooth", "network", "pulseaudio", "clock#date","clock"]
   },
 
   {
@@ -29,7 +29,7 @@
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["cpu", "memory", "custom/nvidia"],
-    "modules-right": ["bluetooth", "network", "pulseaudio", "clock#mini"]
+    "modules-right": ["bluetooth", "network", "pulseaudio", "clock"]
   }
 ]
 
