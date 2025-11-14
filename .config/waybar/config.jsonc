@@ -25,7 +25,7 @@
     "name": "bar-1080p",
     "layer": "top",
     "position": "top",
-    "output": ["DP-2", "DP-3"],
+    "output": ["DP-3"],
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["cpu", "memory", "custom/nvidia"],

@@ -1,4 +1,4 @@
-#files: 819	version: 5.9
+#files: 824	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -262,6 +262,7 @@ _comps=(
 'doas' '_doas'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
+'dotnet' '_dotnet'
 'drill' '_drill'
 'dropbox' '_dropbox'
 'dropdb' '_postgresql'
@@ -838,6 +839,7 @@ _comps=(
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
+'ninja' '_ninja'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1349,6 +1351,8 @@ _comps=(
 '-value-,CFLAGS,-default-' '_gcc'
 '-value-,CPPFLAGS,-default-' '_gcc'
 '-value-,CXXFLAGS,-default-' '_gcc'
+'-value-,DBUS_SESSION_BUS_ADDRESS,-default-' '_sd_bus_address'
+'-value-,DBUS_SYSTEM_BUS_ADDRESS,-default-' '_sd_bus_address'
 '-value-,-default-,-command-' '_zargs'
 '-value-,-default-,-default-' '_value'
 '-value-,DISPLAY,-default-' '_x_display'
@@ -1432,6 +1436,8 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
 'wpctl' '_wpctl'
@@ -1666,16 +1672,17 @@ bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
 autoload -Uz _bluetoothctl _bootctl _busctl _bwrap _coredumpctl \
-            _curl _dkms _hostnamectl _hyprctl _hyprpm \
-            _insmod _journalctl _kernel-install _kitty _libinput \
-            _localectl _loginctl _lsmod _machinectl _mkinitcpio \
-            _networkctl _oomctl _p11-kit _pacman _playerctl \
-            _pulseaudio _resolvectl _rmmod _run0 _sd_hosts_or_user_at_host \
-            _sd_machines _sd_outputmodes _sd_unit_files _sensors _sensors-detect \
-            _swaync _swaync-client _swww _systemctl _systemd \
-            _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path \
-            _systemd-run _systemd-tmpfiles _timedatectl _trust _udevadm \
-            _udisks2 _upower _varlinkctl _wpctl _yay \
+            _curl _dkms _dotnet _hostnamectl _hyprctl \
+            _hyprpm _insmod _journalctl _kernel-install _kitty \
+            _libinput _localectl _loginctl _lsmod _machinectl \
+            _mkinitcpio _networkctl _ninja _oomctl _p11-kit \
+            _pacman _playerctl _pulseaudio _resolvectl _rmmod \
+            _run0 _sd_bus_address _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
+            _sd_unit_files _sensors _sensors-detect _swaync _swaync-client \
+            _swww _systemctl _systemd _systemd-analyze _systemd-delta \
+            _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles \
+            _timedatectl _trust _udevadm _udisks2 _upower \
+            _varlinkctl _wl-copy _wl-paste _wpctl _yay \
             _cdr _all_labels _all_matches _alternative _approximate \
             _arg_compile _arguments _bash_completions _cache_invalid _call_function \
             _combination _complete _complete_debug _complete_help _complete_help_generic \
@@ -1834,5 +1841,5 @@ autoload -Uz +X _call_program
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
 
-#omz revision: a27399b72b80893391a85d1828850afdcbd066d6
+#omz revision: e07c0a526b186ac4e2e94e4451c18a6b084bc43f
 #omz fpath: /home/lazzy07/.config/zsh/.oh-my-zsh/plugins/git /home/lazzy07/.config/zsh/.oh-my-zsh/functions /home/lazzy07/.config/zsh/.oh-my-zsh/completions /home/lazzy07/.config/zsh/.oh-my-zsh/custom/functions /home/lazzy07/.config/zsh/.oh-my-zsh/custom/completions /home/lazzy07/.config/zsh/.oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/functions/Calendar /usr/share/zsh/functions/Chpwd /usr/share/zsh/functions/Completion /usr/share/zsh/functions/Completion/Base /usr/share/zsh/functions/Completion/Linux /usr/share/zsh/functions/Completion/Unix /usr/share/zsh/functions/Completion/X /usr/share/zsh/functions/Completion/Zsh /usr/share/zsh/functions/Exceptions /usr/share/zsh/functions/MIME /usr/share/zsh/functions/Math /usr/share/zsh/functions/Misc /usr/share/zsh/functions/Newuser /usr/share/zsh/functions/Prompts /usr/share/zsh/functions/TCP /usr/share/zsh/functions/VCS_Info /usr/share/zsh/functions/VCS_Info/Backends /usr/share/zsh/functions/Zftp /usr/share/zsh/functions/Zle

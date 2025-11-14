@@ -1,0 +1,71 @@
+# Huion Keydial Mini – Blender sculpt/paint/GP config
+
+# Auto-discover the device via DBus
+device_address: null
+
+# ---------------------------------------------------
+# KEY MAPPINGS
+# ---------------------------------------------------
+# Supported action types (from README):
+# - Keyboard actions: KEY_*, combos like KEY_LEFTCTRL+KEY_Z
+# - Mouse actions: BTN_LEFT / BTN_RIGHT / BTN_MIDDLE / etc.
+# - NO keyboard+mouse mixes (combo actions are "future enhancement")
+#   so we keep nav either pure mouse OR pure keyboard.
+#
+# This layout assumes:
+# - You orbit with middle mouse (from the dial)
+# - Pen does left click / stroke
+# ---------------------------------------------------
+key_mappings:
+  BUTTON_1:  "KEY_LEFTCTRL+KEY_TAB"            # Open edit pie menu
+
+  # --- Sculpt / paint core controls ---
+  BUTTON_5:  "KEY_F"                           # Brush size adjust (hold+drag in Blender)
+  BUTTON_6:  "KEY_LEFTSHIFT"                   # Smooth modifier (hold while sculpting)
+  BUTTON_7:  "KEY_LEFTCTRL"                    # Invert / subtract / alt action
+  BUTTON_8:  "KEY_X"                           # Toggle X symmetry / axis toggle
+
+  # --- Common transform helpers ---
+  BUTTON_9:  "KEY_G"                           # Grab / Move
+  BUTTON_10: "KEY_R"                           # Rotate
+  BUTTON_11: "KEY_S"                           # Scale
+
+  # --- Grease Pencil basics ---
+  BUTTON_12: "KEY_D"                           # Draw (set this in GP keymap if needed)
+  BUTTON_13: "KEY_E"                           # Erase
+  BUTTON_14: "KEY_B"                           # Box select / GP box select
+
+  # --- Undo / redo + quick favorites ---
+  BUTTON_15: "KEY_Q"                           # Quick Favorites menu
+  BUTTON_16: "KEY_T"                           # Tool shelf / toolbar toggle
+  BUTTON_17: "KEY_LEFTCTRL+KEY_Z"             # Undo
+  BUTTON_18: "KEY_LEFTCTRL+KEY_LEFTSHIFT+KEY_Z" # Redo
+
+sticky_key_mappings:
+  BUTTON_2: "KEY_LEFTALT"                     # Change ortho view 
+  BUTTON_3: "KEY_LEFTSHIFT"                   # Pan
+  BUTTON_4: "KEY_LEFTCTRL"                    # Zoom controls
+
+# ---------------------------------------------------
+# DIAL SETTINGS – Brush size & strength
+# ---------------------------------------------------
+# Blender defaults (sculpt/paint):
+# - [ / ]  : Brush size down/up
+# - Shift+F: Brush strength adjust
+# ---------------------------------------------------
+dial_settings:
+  DIAL_CW:    "KEY_RIGHTBRACE"                 # ] – increase brush size
+  DIAL_CCW:   "KEY_LEFTBRACE"                  # [ – decrease brush size
+  DIAL_CLICK: "KEY_LEFTSHIFT+KEY_F"            # Shift+F – brush strength
+  sensitivity: 1.0
+
+# ---------------------------------------------------
+# UInput / connection / debug
+# ---------------------------------------------------
+uinput_device_name: "Huion Keydial Mini"
+connection_timeout: 10.0
+debug_mode: false
+
+bluetooth:
+  auto_reconnect: true
+
