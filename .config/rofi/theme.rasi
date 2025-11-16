@@ -1,0 +1,30 @@
+@import "colors/colors.rasi"
+
+* {
+    font: "Inter 13";
+
+    background: @background;
+    foreground: @foreground;
+    border-color: @border;
+}
+
+window {
+    width: 480px;
+    border: 2px;
+    padding: 16px;
+    background-color: @background;
+}
+
+listview {
+    padding: 8px;
+}
+
+element {
+    padding: 6px;
+}
+
+element selected {
+    background-color: @accent;
+    foreground: @background;
+}
+

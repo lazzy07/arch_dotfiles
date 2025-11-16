@@ -17,7 +17,7 @@ device_address: null
 # - Pen does left click / stroke
 # ---------------------------------------------------
 key_mappings:
-  BUTTON_1:  "KEY_LEFTCTRL+KEY_TAB"            # Open edit pie menu
+  BUTTON_1:  "KEY_LEFTCTRL+KEY_TAB"            # Open edit menu
 
   # --- Sculpt / paint core controls ---
   BUTTON_5:  "KEY_F"                           # Brush size adjust (hold+drag in Blender)
@@ -54,17 +54,18 @@ sticky_key_mappings:
 # - Shift+F: Brush strength adjust
 # ---------------------------------------------------
 dial_settings:
-  DIAL_CW:    "KEY_RIGHTBRACE"                 # ] – increase brush size
-  DIAL_CCW:   "KEY_LEFTBRACE"                  # [ – decrease brush size
-  DIAL_CLICK: "KEY_LEFTSHIFT+KEY_F"            # Shift+F – brush strength
+  DIAL_CW: "KEY_UP"
+  DIAL_CCW: "KEY_DOWN"
+  DIAL_CLICK: "KEY_SPACE"
   sensitivity: 1.0
+
 
 # ---------------------------------------------------
 # UInput / connection / debug
 # ---------------------------------------------------
 uinput_device_name: "Huion Keydial Mini"
 connection_timeout: 10.0
-debug_mode: false
+debug_mode: true
 
 bluetooth:
   auto_reconnect: true

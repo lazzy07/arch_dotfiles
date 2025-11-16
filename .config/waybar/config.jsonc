@@ -18,7 +18,7 @@
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["cpu", "memory", "custom/nvidia"],
-    "modules-right": ["clock#mini"]  // uses mini clock instance
+    "modules-right": ["bluetooth", "network", "pulseaudio", "clock"]
   },
 
   {
@@ -29,7 +29,7 @@
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["cpu", "memory", "custom/nvidia"],
-    "modules-right": ["bluetooth", "network", "pulseaudio", "clock"]
+    "modules-right": ["clock#mini"]  // uses mini clock instance
   }
 ]
 

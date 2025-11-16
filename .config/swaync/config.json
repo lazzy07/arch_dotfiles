@@ -73,19 +73,19 @@
       "actions": [
         {
           "label": " ",
-          "command": "amixer set Master toggle"
+          "command": "pavucontrol"
         },
         {
           "label": "",
-          "command": "amixer set Capture toggle"
+          "command": "pavucontrol"
         },
         {
           "label": " ",
-          "command": "nm-connection-editor"
+          "command": "~/.config/rofi/rofi-wifi.sh"
         },
         {
           "label": "󰂯",
-          "command": "blueman-manager"
+          "command": "~/.config/rofi/rofi-bluetooth.sh"
         }
       ]
     }
