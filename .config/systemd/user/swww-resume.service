@@ -1,0 +1,10 @@
+[Unit]
+Description=Reapply swww wallpaper after resume
+After=hyprland-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/swww-restore.sh
+
+[Install]
+WantedBy=default.target

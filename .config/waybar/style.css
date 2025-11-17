@@ -1,16 +1,15 @@
 @import "colors.css";
 
-
 * {
   border: none;
   border-radius: 0;
-  font-family: "Inter Variable", "JetBrainsMono Nerd Font", Helvetica, Arial, sans-serif;
+  font-family: "Inter Variable", "JetBrainsMono Nerd Font Propo", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: transparent;
+  background: transparent;
   color: @on_primary;
 }
 
@@ -74,6 +73,13 @@ tooltip label {
   font-size: 1.5rem;
 }
 
+#clock.date{
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: @primary;
+  background-color: @background;
+}
+
 #memory, #cpu, #custom-nvidia {
     padding: 5px 10px;
     min-width: 110px;
@@ -82,6 +88,10 @@ tooltip label {
     border-radius: 20px;
     color: @tritiery;
     font-weight: bold;
+}
+
+#custom-nvidia {
+    min-width: 120px;
 }
 
 #hyprland-window {
@@ -94,4 +104,14 @@ tooltip label {
   font-size: 1.1rem;
   color: @on_primary;
   font-weight: bolder;
+}
+
+#custom-notification{
+  font-size: 1rem;
+  min-width: 40px;
+  padding: 0;
+  margin: 5px;
+  background-color: @secondary;
+  color: @on_secondary;
+  border-radius: 100%;
 }
