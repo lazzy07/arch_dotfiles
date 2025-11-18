@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMG="/home/lazzy07/documents/wallpapers/forrest.png"
+IMG="/home/lazzy07/documents/wallpapers/Clearnight.jpg"
 
 if ! command -v swww >/dev/null 2>&1; then
   echo "[swww-restore] ERROR: swww not found in PATH" >&2
