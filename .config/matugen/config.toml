@@ -29,7 +29,13 @@ output_path = "~/.config/swaync/colors.css"
 [templates.gtk3]
 input_path = "templates/matugen-gtk.css"
 output_path = "~/.config/gtk-3.0/gtk.css"
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
-input_path = "templates/matugen-gtk.css"
-output_path = "~/.config/gtk-4.0/gtk.css"
+input_path = 'templates/matugen-gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.tmux]
+input_path = 'templates/tmux-colors.conf'
+output_path = '~/.config/tmux/generated.conf'
+post_hook = 'tmux source-file ~/.config/tmux/generated.conf'
