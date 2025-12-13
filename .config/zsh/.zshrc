@@ -21,3 +21,12 @@ source $ZSH/oh-my-zsh.sh
 # Add ./local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
+# Tmux aliases
+alias t='tmux'
+alias ta='tmux attach'
+alias tat='tmux attach -t'
+alias tl='tmux list-sessions'
+alias tn='tmux new -s'
+alias tk='tmux kill-session -t'
+alias tka='tmux kill-server'
+
