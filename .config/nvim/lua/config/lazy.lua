@@ -23,6 +23,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.dap.core" },
 
+    -- Installing typescipt functionality
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },

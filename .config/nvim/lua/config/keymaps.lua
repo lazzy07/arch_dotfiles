@@ -1,3 +1,13 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
+vim.keymap.set("n", "<leader>cg", function()
+  require("neogen").generate()
+end, { desc = "Generate documentation" })
+
+local header = require("header")
+
+vim.keymap.set("n", "<leader>hh", function()
+  header.add_headers()
+end, { desc = "Generate file description" })
