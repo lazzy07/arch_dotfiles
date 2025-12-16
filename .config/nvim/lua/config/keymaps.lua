@@ -5,3 +5,9 @@ vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
 vim.keymap.set("n", "<leader>cg", function()
   require("neogen").generate()
 end, { desc = "Generate documentation" })
+
+local header = require("header")
+
+vim.keymap.set("n", "<leader>hh", function()
+  header.add_headers()
+end, { desc = "Generate file description" })
