@@ -17,7 +17,7 @@ return {
         },
         typescript = {
           template = {
-            annotation_convention = "jsdoc",
+            annotation_convention = "tsdoc",
           },
         },
       },
