@@ -3,11 +3,11 @@
     "name": "bar-ultra",
     "layer": "top",
     "position": "top",
-    "output": "DP-1",
+    "output": "DP-2",
     "include": "./common-modules.jsonc",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/notification" ,"cpu", "memory", "custom/nvidia"],
-    "modules-right": ["bluetooth", "network", "pulseaudio", "clock#date","clock"]
+    "modules-right": ["network", "pulseaudio", "clock#date","clock"]
   },
 
   {
