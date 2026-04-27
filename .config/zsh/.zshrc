@@ -30,3 +30,11 @@ alias tn='tmux new -s'
 alias tk='tmux kill-session -t'
 alias tka='tmux kill-server'
 
+
+# pnpm
+export PNPM_HOME="/home/lazzy07/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
