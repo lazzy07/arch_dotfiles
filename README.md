@@ -24,7 +24,7 @@ stow .
 I used [nwg-displays](https://www.github.com/nwg-piotr/nwg-displays) to find the perfect monitor layout for my PC.
 
 ## Changing the wallpaper
-Since issues with waking up the PC with hypridle (Vertical monitor not showing the wallpaper after waking the PC up), I have created a deamon to run everytime the system wake up. So, when changing the wallpaper, use the following script.
+To change the wallpaper and regenerate the matugen color scheme, use the following script.
 
 ```bash
 matugen-wall.sh <wallpaper_path>

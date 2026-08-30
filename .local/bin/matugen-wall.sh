@@ -20,8 +20,8 @@ if ! command -v matugen >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "[matugen-wall] running: matugen image \"$IMG\"" >> "$LOG"
-matugen image "$IMG" >> "$LOG" 2>&1 || {
+echo "[matugen-wall] running: matugen image \"$IMG\" --mode dark" >> "$LOG"
+matugen image "$IMG" --mode dark >> "$LOG" 2>&1 || {
   echo "[matugen-wall] ERROR: matugen failed" | tee -a "$LOG" >&2
   exit 1
 }
@@ -41,9 +41,9 @@ else
   echo "[matugen-wall] swww-daemon already running" >> "$LOG"
 fi
 
-# 4) Get outputs from swww query (correct format)
-# Expected lines like: "Output DP-1 ..."
-OUTPUTS=$(swww query 2>>"$LOG" | awk '/^Output/ {print $2}')
+# 4) Get outputs from swww query
+# Expected lines like: ": DP-1: 3440x1440, scale: 1, currently displaying: ..."
+OUTPUTS=$(swww query 2>>"$LOG" | awk -F': ' '{print $2}')
 
 if [[ -z "$OUTPUTS" ]]; then
   echo "[matugen-wall] WARNING: no outputs from swww query, applying once without -o" | tee -a "$LOG" >&2
@@ -60,7 +60,7 @@ else
   done
 fi
 
-# 5) Generate restore script
+# 5) Generate restore script (manual re-apply via keybind)
 RESTORE="$HOME/.local/bin/swww-restore.sh"
 echo "[matugen-wall] writing restore script to $RESTORE" >> "$LOG"
 
@@ -82,7 +82,7 @@ fi
 
 sleep 1.5
 
-OUTPUTS=\$(swww query 2>/dev/null | awk '/^Output/ {print \$2}')
+OUTPUTS=\$(swww query 2>/dev/null | awk -F': ' '{print \$2}')
 
 if [[ -z "\$OUTPUTS" ]]; then
   echo "[swww-restore] WARNING: no outputs from swww query, applying once without -o" >&2

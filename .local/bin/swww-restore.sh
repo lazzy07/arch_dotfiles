@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMG="documents/wallpapers/Clearnight.jpg"
+IMG="/home/lazzy07/documents/wallpapers/Clearnight.jpg"
 
 if ! command -v swww >/dev/null 2>&1; then
   echo "[swww-restore] ERROR: swww not found in PATH" >&2
@@ -15,7 +15,7 @@ fi
 
 sleep 1.5
 
-OUTPUTS=$(swww query 2>/dev/null | awk '/^Output/ {print $2}')
+OUTPUTS=$(swww query 2>/dev/null | awk -F': ' '{print $2}')
 
 if [[ -z "$OUTPUTS" ]]; then
   echo "[swww-restore] WARNING: no outputs from swww query, applying once without -o" >&2
