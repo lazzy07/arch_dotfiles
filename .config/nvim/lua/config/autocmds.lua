@@ -14,7 +14,7 @@ augroup("mygroup", { clear = true })
 
 autocmd("BufWritePre", {
   pattern = "*",
-  group = grp,
+  group = "mygroup",
   desc = "Update header's date modified only if content changed",
   callback = function()
     -- Skip if buffer has no changes
