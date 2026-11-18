@@ -55,7 +55,7 @@
           "stroke_colour": "#000000",
           "stroke_size": 3,
           "style": "Regular",
-          "text": "ALC897 Analog",
+          "text": "HDMI 0",
           "underline": false
         }
       ]
@@ -115,7 +115,7 @@
           "stroke_colour": "#000000",
           "stroke_size": 3,
           "style": "Regular",
-          "text": "ALC897 Analog",
+          "text": "HDMI 0",
           "underline": false
         }
       ]
@@ -175,7 +175,7 @@
           "stroke_colour": "#000000",
           "stroke_size": 3,
           "style": "Regular",
-          "text": "ALC897 Analog",
+          "text": "HDMI 0",
           "underline": false
         }
       ]
@@ -237,7 +237,7 @@
           "stroke_colour": "#000000",
           "stroke_size": 3,
           "style": "Regular",
-          "text": "ALC897 Analog",
+          "text": "USB PnP Audio Device",
           "underline": false
         }
       ]
@@ -297,7 +297,7 @@
           "stroke_colour": "#000000",
           "stroke_size": 3,
           "style": "Regular",
-          "text": "ALC897 Analog",
+          "text": "USB PnP Audio Device",
           "underline": false
         }
       ]
@@ -357,7 +357,7 @@
           "stroke_colour": "#000000",
           "stroke_size": 3,
           "style": "Regular",
-          "text": "ALC897 Analog",
+          "text": "USB PnP Audio Device",
           "underline": false
         }
       ]
