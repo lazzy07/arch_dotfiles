@@ -94,6 +94,34 @@ tooltip label {
     min-width: 120px;
 }
 
+#tray {
+    margin: 2px 5px;
+    padding: 3px 15px;
+    background-color: @background;
+    border-radius: 20px;
+}
+
+#tray > widget {
+    padding: 0 4px;
+}
+
+#custom-focus-timer {
+    margin: 2px 5px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: @background;
+    color: @outline;
+    font-weight: bold;
+}
+
+#custom-focus-timer.running {
+    color: @primary;
+}
+
+#custom-focus-timer.paused {
+    color: @tertiary;
+}
+
 #hyprland-window {
     color: @on_primary;
     font-size: 1.5rem;

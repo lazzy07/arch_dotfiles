@@ -1,7 +1,10 @@
-
 [Default Applications]
 inode/directory=thunar.desktop
 application/x-directory=thunar.desktop
 x-scheme-handler/opendeck=opendeck-handler.desktop
 x-scheme-handler/openaction=opendeck-handler.desktop
 x-scheme-handler/streamdeck=opendeck-handler.desktop
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop
+
+[Added Associations]
+application/pdf=firefox.desktop;

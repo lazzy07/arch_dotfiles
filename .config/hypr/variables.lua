@@ -1,0 +1,10 @@
+-----------------------------
+--  Variables
+-----------------------------
+
+return {
+    browser     = "firefox",
+    terminal    = "kitty",
+    fileManager = "thunar",
+    menu        = "wofi --show drun",
+}

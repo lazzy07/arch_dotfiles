@@ -12,6 +12,9 @@ if [[ -z "$IMG" || ! -f "$IMG" ]]; then
   exit 1
 fi
 
+# Store an absolute path: the restore script runs from a different directory.
+IMG="$(realpath -- "$IMG")"
+
 echo "[matugen-wall] using wallpaper: $IMG" >> "$LOG"
 
 # 1) Generate colors with Matugen
@@ -26,75 +29,60 @@ matugen image "$IMG" --mode dark >> "$LOG" 2>&1 || {
   exit 1
 }
 
-# 2) Ensure swww exists
-if ! command -v swww >/dev/null 2>&1; then
-  echo "[matugen-wall] ERROR: swww not found in PATH" | tee -a "$LOG" >&2
+# 2) Ensure awww exists
+if ! command -v awww >/dev/null 2>&1; then
+  echo "[matugen-wall] ERROR: awww not found in PATH" | tee -a "$LOG" >&2
   exit 1
 fi
 
-# 3) Ensure swww-daemon is running
-if ! pgrep -x swww-daemon >/dev/null 2>&1; then
-  echo "[matugen-wall] starting swww-daemon" >> "$LOG"
-  swww-daemon --format xrgb >> "$LOG" 2>&1 &
-  sleep 0.3
+# 3) Ensure awww-daemon is running and has registered the outputs
+if ! pgrep -x awww-daemon >/dev/null 2>&1; then
+  echo "[matugen-wall] starting awww-daemon" >> "$LOG"
+  awww-daemon >> "$LOG" 2>&1 &
 else
-  echo "[matugen-wall] swww-daemon already running" >> "$LOG"
+  echo "[matugen-wall] awww-daemon already running" >> "$LOG"
 fi
 
-# 4) Get outputs from swww query
-# Expected lines like: ": DP-1: 3440x1440, scale: 1, currently displaying: ..."
-OUTPUTS=$(swww query 2>>"$LOG" | awk -F': ' '{print $2}')
+for _ in $(seq 1 100); do
+  awww query 2>/dev/null | grep -q . && break
+  sleep 0.1
+done
 
-if [[ -z "$OUTPUTS" ]]; then
-  echo "[matugen-wall] WARNING: no outputs from swww query, applying once without -o" | tee -a "$LOG" >&2
-  # Try at least once (some swww versions use a default output)
-  swww img --transition-type center "$IMG" >>"$LOG" 2>&1 || {
-    echo "[matugen-wall] ERROR: swww img failed without outputs" | tee -a "$LOG" >&2
-    exit 1
-  }
-else
-  echo "[matugen-wall] outputs: $OUTPUTS" >> "$LOG"
-  for out in $OUTPUTS; do
-    echo "[matugen-wall] swww img -o $out \"$IMG\"" >> "$LOG"
-    swww img -o "$out" --transition-type center "$IMG" >>"$LOG" 2>&1
-  done
-fi
+# 4) Apply the wallpaper (awww img without -o applies to every output)
+echo "[matugen-wall] outputs: $(awww query 2>>"$LOG" | awk -F': ' '{print $2}' | xargs)" >> "$LOG"
+awww img --transition-type center "$IMG" >>"$LOG" 2>&1 || {
+  echo "[matugen-wall] ERROR: awww img failed" | tee -a "$LOG" >&2
+  exit 1
+}
 
-# 5) Generate restore script (manual re-apply via keybind)
-RESTORE="$HOME/.local/bin/swww-restore.sh"
+# 5) Generate restore script (autostart + manual re-apply via keybind)
+RESTORE="$HOME/.local/bin/awww-restore.sh"
 echo "[matugen-wall] writing restore script to $RESTORE" >> "$LOG"
 
 cat > "$RESTORE" <<EOF
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMG="$IMG"
+IMG=$(printf '%q' "$IMG")
 
-if ! command -v swww >/dev/null 2>&1; then
-  echo "[swww-restore] ERROR: swww not found in PATH" >&2
+if ! command -v awww >/dev/null 2>&1; then
+  echo "[awww-restore] ERROR: awww not found in PATH" >&2
   exit 1
 fi
 
-if ! pgrep -x swww-daemon >/dev/null 2>&1; then
-  swww-daemon --format xrgb >/dev/null 2>&1 &
-  sleep 0.3
+if ! pgrep -x awww-daemon >/dev/null 2>&1; then
+  awww-daemon >/dev/null 2>&1 &
 fi
 
-sleep 1.5
-
-OUTPUTS=\$(swww query 2>/dev/null | awk -F': ' '{print \$2}')
-
-if [[ -z "\$OUTPUTS" ]]; then
-  echo "[swww-restore] WARNING: no outputs from swww query, applying once without -o" >&2
-  swww img --transition-type center "\$IMG"
-  exit 0
-fi
-
-for out in \$OUTPUTS; do
-  swww img -o "\$out" --transition-type center "\$IMG"
+# Wait (up to 10s) until the daemon answers and has registered the outputs
+for _ in \$(seq 1 100); do
+  awww query 2>/dev/null | grep -q . && break
+  sleep 0.1
 done
+
+# awww img without -o applies to every output
+awww img --transition-type center "\$IMG"
 EOF
 
 chmod +x "$RESTORE"
 echo "[matugen-wall] DONE, restore script ready" >> "$LOG"
-
